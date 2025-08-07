@@ -92,7 +92,7 @@ The XML result will be printed to the console and saved as `biometric_result.xml
 
 ## Authors
 
-Roilan Belaro - _Initial work_ - (https://github.com/roizki)
+Roilan Belaro - _Initial work_ - [roizki](https://github.com/roizki)
 
 ## License
 
