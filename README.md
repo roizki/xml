@@ -1,49 +1,66 @@
-Biometric XML Generator
+# Biometric XML Generator
 
-A Python script to check for duplicate biometric and biographic data, store new entries, and generate a formatted XML result.
+This repository contains a simple Python script for duplicate checking and data storage using biometric and biographic data. The checker evaluates face and fingerprint hashes, as well as name and date of birth, and generates a formatted XML result. Data is stored in a YAML file for easy management and demonstration.
 
-## Features
+## Getting Started
 
-- Checks for duplicate face and fingerprint hashes, as well as biographic (name and DOB) matches.
-- Stores new entries in a YAML database (`biometric_db.yaml`).
-- Outputs a pretty-printed XML result to `biometric_result.xml`.
+### Prerequisites
 
-## Requirements
+Make sure you have the following installed:
+- **Python 3.7+** (for running the script)
+- **pip** (Python package manager)
 
-- Python 3.x
-- [PyYAML](https://pyyaml.org/)
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/biometric-xml-generator.git
+cd biometric-xml-generator
+```
 
 Install dependencies:
-```sh
+
+```bash
 pip install pyyaml
 ```
 
 ## Usage
 
-1. **Edit the input data** in the script:
-    ```python
-    xml_result = checker.check_and_store(
-        name="Jane Doe",
-        dob="1991-02-02",
-        face_hash="face123456",
-        finger_hash="finger654321"
-    )
-    ```
+Edit the input data in the script as needed:
 
-2. **Run the script:**
-    ```sh
-    python biometric_xmlgenerator.py
-    ```
+```python
+xml_result = checker.check_and_store(
+    name="Jane Doe",
+    dob="1991-02-02",
+    face_hash="face123456",
+    finger_hash="finger654321"
+)
+```
 
-3. **Output:**
-    - The XML result will be printed to the console.
-    - The result is also saved to `biometric_result.xml`.
+Run the script:
+
+```bash
+python biometric_xmlgenerator.py
+```
+
+The XML result will be printed to the console and saved as `biometric_result.xml` in the current directory.
+
+### How It Works
+
+- The script checks for duplicate entries based on:
+  - Name and date of birth (biographic match)
+  - Face hash
+  - Fingerprint hash
+- If a duplicate is detected, the result is flagged and the match status is updated.
+- If no duplicate is found, the entry is stored in `biometric_db.yaml`.
+- The result of each check is output as a formatted XML file.
 
 ## Example XML Output
 
 ```xml
 <BiometricTransactionResult>
-  <TransactionTimestamp>2025-08-01T06:56:46.879826Z</TransactionTimestamp>
+  <TransactionTimestamp>2025-08-07T12:34:56.789012Z</TransactionTimestamp>
   <BiographicData>Jane Doe, DOB: 1991-02-02</BiographicData>
   <FaceDuplicationStatus>NOT_DETECTED</FaceDuplicationStatus>
   <FingerDuplicationStatus>NOT_DETECTED</FingerDuplicationStatus>
@@ -53,11 +70,35 @@ pip install pyyaml
 </BiometricTransactionResult>
 ```
 
-## Database
+## Data Storage
 
-- The script uses a YAML file (`biometric_db.yaml`) to store and check biometric records.
+- All biometric and biographic data is stored in a YAML file (`biometric_db.yaml`).
 - The file is created automatically if it does not exist.
+
+## Logging
+
+- The script prints the XML result to the console.
+- The XML result is also saved to `biometric_result.xml`.
+
+## Configuration
+
+- You can change the database file path by passing a different filename to `BiometricChecker(database_path="your_db.yaml")`.
+
+## Built With
+
+* [Python 3](https://www.python.org/)
+* [PyYAML](https://pyyaml.org/)
+* [xml.etree.ElementTree](https://docs.python.org/3/library/xml.etree.elementtree.html)
+
+## Authors
+
+Your Name - _Initial work_ - [yourusername](https://github.com/yourusername)
 
 ## License
 
-MIT License
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Acknowledgements
+
+- Inspired by real-world biometric deduplication systems.
+- Uses open-source Python libraries for YAML and XML processing.
