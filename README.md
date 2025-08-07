@@ -1,4 +1,4 @@
-# Biometric XML Generator
+# Message Scheme (XML) 
 
 This repository contains a simple Python script for duplicate checking and data storage using biometric and biographic data. The checker evaluates face and fingerprint hashes, as well as name and date of birth, and generates a formatted XML result. Data is stored in a YAML file for easy management and demonstration.
 
