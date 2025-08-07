@@ -7,7 +7,7 @@ This repository contains a simple Python script for duplicate checking and data 
 ### Prerequisites
 
 Make sure you have the following installed:
-- **Python 3.7+** (for running the script)
+- **Python 3.12.3** (for running the script)
 - **pip** (Python package manager)
 
 ### Installation
